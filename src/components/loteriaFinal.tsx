@@ -6,7 +6,7 @@ export default function loteriaFinal({ loteria }: { loteria: any }) {
       {loteria.length > 0 ? (
         loteria.map((masmi: any) => (
           <section className="relative" key={masmi.concurso}>
-            <div className="bg-neutral-950 p-2 ">
+            <div className="bg-neutral-700 p-2 ">
               <h2 className="text-white text-base md:text-lg font-bold ">
                 {masmi.loteria}
               </h2>

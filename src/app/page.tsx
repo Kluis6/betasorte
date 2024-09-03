@@ -193,12 +193,12 @@ export default async function Home() {
               </Link>
             </li>
             <li className="hover:bg-neutral-300 active:bg-neutral-400 p-1 transition-all">
-              <Link href={""} className="font-medium">
+              <Link href={"/federal"} className="font-medium">
                 Federal
               </Link>
             </li>
             <li className="hover:bg-neutral-300 active:bg-neutral-400 p-1 transition-all">
-              <Link href={""} className="font-medium">
+              <Link href={"/diadasorte"} className="font-medium">
                 Dia da sorte
               </Link>
             </li>
