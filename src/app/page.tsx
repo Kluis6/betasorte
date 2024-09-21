@@ -1,5 +1,4 @@
 import LoteriaFinal from "@/components/loteriaFinal";
-import Navbar from "@/components/navbar";
 import Link from "next/link";
 
 type Loterias = {
@@ -11,9 +10,9 @@ type Loterias = {
   acumulou: boolean;
 };
 
-async function getLotomania(): Promise<Loterias[]> {
+async function getLoterias(){
   const response = await fetch(
-    "https://loteriascaixa-api.herokuapp.com/api/lotomania/latest"
+    "https://loteriascaixa-api.herokuapp.com/api/"
   );
   if (!response.ok) {
     throw new Error(`HTTP error! status: ${response.status}`);
@@ -24,134 +23,149 @@ async function getLotomania(): Promise<Loterias[]> {
   return Array.isArray(data) ? data : [data];
 }
 
-async function getMegasena(): Promise<Loterias[]> {
-  const response = await fetch(
-    "https://loteriascaixa-api.herokuapp.com/api/megasena/latest"
-  );
-  if (!response.ok) {
-    throw new Error(`HTTP error! status: ${response.status}`);
-  }
-  const data = await response.json();
+// async function getLotomania(): Promise<Loterias[]> {
+//   const response = await fetch(
+//     "https://loteriascaixa-api.herokuapp.com/api/lotomania/latest"
+//   );
+//   if (!response.ok) {
+//     throw new Error(`HTTP error! status: ${response.status}`);
+//   }
+//   const data = await response.json();
 
-  // Verifica se data é um array, se não for, retorna um array vazio
-  return Array.isArray(data) ? data : [data];
-}
+//   // Verifica se data é um array, se não for, retorna um array vazio
+//   return Array.isArray(data) ? data : [data];
+// }
 
-async function getLotofacil(): Promise<Loterias[]> {
-  const response = await fetch(
-    "https://loteriascaixa-api.herokuapp.com/api/lotofacil/latest"
-  );
-  if (!response.ok) {
-    throw new Error(`HTTP error! status: ${response.status}`);
-  }
-  const data = await response.json();
+// async function getMegasena(): Promise<Loterias[]> {
+//   const response = await fetch(
+//     "https://loteriascaixa-api.herokuapp.com/api/megasena/latest"
+//   );
+//   if (!response.ok) {
+//     throw new Error(`HTTP error! status: ${response.status}`);
+//   }
+//   const data = await response.json();
 
-  // Verifica se data é um array, se não for, retorna um array vazio
-  return Array.isArray(data) ? data : [data];
-}
+//   // Verifica se data é um array, se não for, retorna um array vazio
+//   return Array.isArray(data) ? data : [data];
+// }
 
-async function getQuina(): Promise<Loterias[]> {
-  const response = await fetch(
-    "https://loteriascaixa-api.herokuapp.com/api/quina/latest"
-  );
-  if (!response.ok) {
-    throw new Error(`HTTP error! status: ${response.status}`);
-  }
-  const data = await response.json();
+// async function getLotofacil(): Promise<Loterias[]> {
+//   const response = await fetch(
+//     "https://loteriascaixa-api.herokuapp.com/api/lotofacil/latest"
+//   );
+//   if (!response.ok) {
+//     throw new Error(`HTTP error! status: ${response.status}`);
+//   }
+//   const data = await response.json();
 
-  // Verifica se data é um array, se não for, retorna um array vazio
-  return Array.isArray(data) ? data : [data];
-}
+//   // Verifica se data é um array, se não for, retorna um array vazio
+//   return Array.isArray(data) ? data : [data];
+// }
 
-async function getMaismilionaria(): Promise<Loterias[]> {
-  const response = await fetch(
-    "https://loteriascaixa-api.herokuapp.com/api/maismilionaria/latest"
-  );
-  if (!response.ok) {
-    throw new Error(`HTTP error! status: ${response.status}`);
-  }
-  const data = await response.json();
+// async function getQuina(): Promise<Loterias[]> {
+//   const response = await fetch(
+//     "https://loteriascaixa-api.herokuapp.com/api/quina/latest"
+//   );
+//   if (!response.ok) {
+//     throw new Error(`HTTP error! status: ${response.status}`);
+//   }
+//   const data = await response.json();
 
-  // Verifica se data é um array, se não for, retorna um array vazio
-  return Array.isArray(data) ? data : [data];
-}
+//   // Verifica se data é um array, se não for, retorna um array vazio
+//   return Array.isArray(data) ? data : [data];
+// }
 
-async function getDuplasena(): Promise<Loterias[]> {
-  const response = await fetch(
-    "https://loteriascaixa-api.herokuapp.com/api/duplasena/latest"
-  );
-  if (!response.ok) {
-    throw new Error(`HTTP error! status: ${response.status}`);
-  }
-  const data = await response.json();
+// async function getMaismilionaria(): Promise<Loterias[]> {
+//   const response = await fetch(
+//     "https://loteriascaixa-api.herokuapp.com/api/maismilionaria/latest"
+//   );
+//   if (!response.ok) {
+//     throw new Error(`HTTP error! status: ${response.status}`);
+//   }
+//   const data = await response.json();
 
-  // Verifica se data é um array, se não for, retorna um array vazio
-  return Array.isArray(data) ? data : [data];
-}
+//   // Verifica se data é um array, se não for, retorna um array vazio
+//   return Array.isArray(data) ? data : [data];
+// }
 
-async function getTimemania(): Promise<Loterias[]> {
-  const response = await fetch(
-    "https://loteriascaixa-api.herokuapp.com/api/timemania/latest"
-  );
-  if (!response.ok) {
-    throw new Error(`HTTP error! status: ${response.status}`);
-  }
-  const data = await response.json();
+// async function getDuplasena(): Promise<Loterias[]> {
+//   const response = await fetch(
+//     "https://loteriascaixa-api.herokuapp.com/api/duplasena/latest"
+//   );
+//   if (!response.ok) {
+//     throw new Error(`HTTP error! status: ${response.status}`);
+//   }
+//   const data = await response.json();
 
-  // Verifica se data é um array, se não for, retorna um array vazio
-  return Array.isArray(data) ? data : [data];
-}
+//   // Verifica se data é um array, se não for, retorna um array vazio
+//   return Array.isArray(data) ? data : [data];
+// }
 
-async function getFederal(): Promise<Loterias[]> {
-  const response = await fetch(
-    "https://loteriascaixa-api.herokuapp.com/api/federal/latest"
-  );
-  if (!response.ok) {
-    throw new Error(`HTTP error! status: ${response.status}`);
-  }
-  const data = await response.json();
+// async function getTimemania(): Promise<Loterias[]> {
+//   const response = await fetch(
+//     "https://loteriascaixa-api.herokuapp.com/api/timemania/latest"
+//   );
+//   if (!response.ok) {
+//     throw new Error(`HTTP error! status: ${response.status}`);
+//   }
+//   const data = await response.json();
 
-  // Verifica se data é um array, se não for, retorna um array vazio
-  return Array.isArray(data) ? data : [data];
-}
+//   // Verifica se data é um array, se não for, retorna um array vazio
+//   return Array.isArray(data) ? data : [data];
+// }
 
-async function getDiadasorte(): Promise<Loterias[]> {
-  const response = await fetch(
-    "https://loteriascaixa-api.herokuapp.com/api/diadesorte/latest"
-  );
-  if (!response.ok) {
-    throw new Error(`HTTP error! status: ${response.status}`);
-  }
-  const data = await response.json();
+// async function getFederal(): Promise<Loterias[]> {
+//   const response = await fetch(
+//     "https://loteriascaixa-api.herokuapp.com/api/federal/latest"
+//   );
+//   if (!response.ok) {
+//     throw new Error(`HTTP error! status: ${response.status}`);
+//   }
+//   const data = await response.json();
 
-  // Verifica se data é um array, se não for, retorna um array vazio
-  return Array.isArray(data) ? data : [data];
-}
+//   // Verifica se data é um array, se não for, retorna um array vazio
+//   return Array.isArray(data) ? data : [data];
+// }
 
-async function getSupersete(): Promise<Loterias[]> {
-  const response = await fetch(
-    "https://loteriascaixa-api.herokuapp.com/api/supersete/latest"
-  );
-  if (!response.ok) {
-    throw new Error(`HTTP error! status: ${response.status}`);
-  }
-  const data = await response.json();
+// async function getDiadasorte(): Promise<Loterias[]> {
+//   const response = await fetch(
+//     "https://loteriascaixa-api.herokuapp.com/api/diadesorte/latest"
+//   );
+//   if (!response.ok) {
+//     throw new Error(`HTTP error! status: ${response.status}`);
+//   }
+//   const data = await response.json();
 
-  // Verifica se data é um array, se não for, retorna um array vazio
-  return Array.isArray(data) ? data : [data];
-}
+//   // Verifica se data é um array, se não for, retorna um array vazio
+//   return Array.isArray(data) ? data : [data];
+// }
+
+// async function getSupersete(): Promise<Loterias[]> {
+//   const response = await fetch(
+//     "https://loteriascaixa-api.herokuapp.com/api/supersete/latest"
+//   );
+//   if (!response.ok) {
+//     throw new Error(`HTTP error! status: ${response.status}`);
+//   }
+//   const data = await response.json();
+
+//   // Verifica se data é um array, se não for, retorna um array vazio
+//   return Array.isArray(data) ? data : [data];
+// }
 
 export default async function Home() {
-  const lotomania = await getLotomania();
-  const megasena = await getMegasena();
-  const lotofacil = await getLotofacil();
-  const quina = await getQuina();
-  const maismilionaria = await getMaismilionaria();
-  const duplasena = await getDuplasena();
-  const timemania = await getTimemania();
-  const federal = await getFederal();
-  const diadasorte = await getDiadasorte();
-  const supersete = await getSupersete();
+  // const lotomania = await getLotomania();
+  // const megasena = await getMegasena();
+  // const lotofacil = await getLotofacil();
+  // const quina = await getQuina();
+  // const maismilionaria = await getMaismilionaria();
+  // const duplasena = await getDuplasena();
+  // const timemania = await getTimemania();
+  // const federal = await getFederal();
+  // const diadasorte = await getDiadasorte();
+  // const supersete = await getSupersete();
+  const loterias = await getLoterias();
+  
   return (
     <main className="w-full h-full">
       <div className="grid grid-cols-12">
@@ -210,7 +224,7 @@ export default async function Home() {
           </ul>
         </div>
         <div className="col-span-10  bg-neutral-300 p-2 ">
-          <div className="grid grid-cols-12 gap-4  ">
+          {/* <div className="grid grid-cols-12 gap-4  ">
             <div className="col-span-12">
               <h2 className="font-bold text-base">Todos os resultados</h2>
             </div>
@@ -244,7 +258,7 @@ export default async function Home() {
             <div className="col-span-4 p-4 bg-neutral-50">
               <LoteriaFinal loteria={supersete} />
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </main>

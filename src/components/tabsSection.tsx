@@ -41,9 +41,9 @@ export default function TabsSection() {
         </button>
       </div>
       <div className="w-full  py-2">
-        {tabs === 0 && <div>0</div>}
-        {tabs === 1 && <div>1</div>}
-        {tabs === 2 && <div>2</div>}
+        {tabs === 0 && <div className="w-full bg-neutral-50 p-2">0</div>}
+        {tabs === 1 && <div className="w-full bg-neutral-50 p-2">1</div>}
+        {tabs === 2 && <div className="w-full bg-neutral-50 p-2">2</div>}
       </div>
     </section>
   );
