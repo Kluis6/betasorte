@@ -1,5 +1,4 @@
 "use client"
-// hooks/useLoteriasData.ts
 import { useState, useEffect } from 'react';
 
 type Loteria = {
