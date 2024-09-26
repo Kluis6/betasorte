@@ -15,7 +15,7 @@ type Loterias = {
 export default function Navbar() {
   // const [loterias, setLoterias] = useState([]);
 
-  const { loterias } = useLoteriasData();
+  const { loterias, maismi } = useLoteriasData();
 
   // useEffect(() => {
   //   const getLoterias = async () => {
@@ -34,7 +34,8 @@ export default function Navbar() {
   //   };
   //   getLoterias();
   // }, []);
- 
+ console.log(maismi)
+ console.log(loterias)
   return (
     <div className="w-full bg-neutral-800 border-b border-neutral-100 sticky top-0 z-10">
       <div className="px-4 py-2.5 flex justify-between">
@@ -45,7 +46,7 @@ export default function Navbar() {
           {loterias.map((loto, index) => (
             <li className={`text-white active:text-neutral-400 transition-colors hover:text-neutral-300`} key={index}>
               {
-                <Link href={loto}>
+                <Link href={`/loteria/`}>
                   {loto === "maismilionaria"
                     ? "+milionária"
                     : loto === "megasena"

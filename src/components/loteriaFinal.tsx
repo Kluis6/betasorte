@@ -1,11 +1,19 @@
 "use client";
-
-export default function loteriaFinal({ loteria }: { loteria: any }) {
+type Loterias = {
+  nome: string;
+  loteria: string | any;
+  concurso: string;
+  data: string;
+  dezenas: string[];
+  trevos: string[];
+  acumulou: boolean;
+};
+export default function LoteriaFinal({ loteria }: { loteria: Loterias[] }) {
   return (
     <div>
-      {loteria.length > 0 ? (
-        loteria.map((masmi: any) => (
-          <section className="relative" key={masmi.concurso}>
+      {loteria ? (
+        loteria.map((masmi, index) => (
+          <section className="relative" key={index}>
             <div className="bg-neutral-700 p-2 ">
               <h2 className="text-white text-base md:text-lg font-bold ">
                 {masmi.loteria}
@@ -17,10 +25,10 @@ export default function loteriaFinal({ loteria }: { loteria: any }) {
               </p>
 
               <p className="text-xl font-bold text-indigo-950 ">
-                {masmi.dezenas.join(" ")}
+                {masmi.dezenas}
               </p>
               <div className="flex text-xl text-green-500 font-bold ">
-                {masmi.trevos.join(" ")}
+                {masmi.trevos}
               </div>
               <p className="text-xl font-semibold text-center">
                 {masmi.acumulou ? "Acumulou" : "não acumulou"}

@@ -25,12 +25,12 @@ import LoteriaInfo from "@/components/loteriaInfo";
 export default function Home() {
   return (
     <main className="w-full h-full p-2">
-      <div className="grid grid-cols-12">
+      <div className="grid grid-cols-12 gap-y-4">
         <div className="col-span-12">
           <h1 className="font-bold text-base">Confira os resulados</h1>
         </div>
         <div className="col-span-12 ">
-          <LoteriaInfo/>
+          <LoteriaInfo />
         </div>
       </div>
     </main>
