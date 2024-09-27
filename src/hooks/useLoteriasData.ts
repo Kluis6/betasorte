@@ -10,9 +10,20 @@ type Loterias = {
   acumulou: boolean;
 };
 
+interface Loteria {
+  loteria: string;
+  concurso: string;
+}
+
 const useLoteriasData = () => {
-  const [loterias, setLoterias] = useState([]); 
-  const [maismi, setMaisMi] = useState<Loterias[]>([]); 
+  const [loterias, setLoterias] = useState([]);
+  const [maismi, setMaisMi] = useState<Loterias[]>([]);
+  const [concurso, setConcurso] = useState("latest");
+  const [loteria, setLoteria] = useState("megasena");
+
+  const updateLoteria = (lotos: string) => {
+    setLoteria(lotos);
+  };
 
   useEffect(() => {
     const getLoterias = async () => {
@@ -32,7 +43,7 @@ const useLoteriasData = () => {
     const getMaismi = async () => {
       try {
         const res = await fetch(
-          `https://loteriascaixa-api.herokuapp.com/api/maismilionaria/latest`
+          `https://loteriascaixa-api.herokuapp.com/api/${loteria}/${concurso}`
         );
         if (!res.ok) {
           throw new Error("Erro ao buscar maismilionaria");
@@ -51,9 +62,9 @@ const useLoteriasData = () => {
 
     getMaismi();
     getLoterias();
-  }, []);
+  }, [concurso, loteria, loterias]);
 
-  return { loterias, maismi };
+  return { loterias, maismi, updateLoteria };
 };
 
 export default useLoteriasData;

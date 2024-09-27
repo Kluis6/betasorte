@@ -1,21 +1,12 @@
 "use client";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import useLoteriasData from "../hooks/useLoteriasData";
 
-type Loterias = {
-  loteria: string;
-  concurso: string;
-  data: string;
-  dezenas: string[];
-  trevos: string[];
-  acumulou: boolean;
-};
+import useLoteriasData from "../hooks/useLoteriasData";
 
 export default function Navbar() {
   // const [loterias, setLoterias] = useState([]);
 
-  const { loterias, maismi } = useLoteriasData();
+  const { loterias } = useLoteriasData();
 
   // useEffect(() => {
   //   const getLoterias = async () => {
@@ -34,8 +25,7 @@ export default function Navbar() {
   //   };
   //   getLoterias();
   // }, []);
- console.log(maismi)
- console.log(loterias)
+
   return (
     <div className="w-full bg-neutral-800 border-b border-neutral-100 sticky top-0 z-10">
       <div className="px-4 py-2.5 flex justify-between">
@@ -44,9 +34,12 @@ export default function Navbar() {
         </Link>
         <ul className="flex gap-2">
           {loterias.map((loto, index) => (
-            <li className={`text-white active:text-neutral-400 transition-colors hover:text-neutral-300`} key={index}>
+            <li
+              className={`text-white active:text-neutral-400 transition-colors hover:text-neutral-300`}
+              key={index}
+            >
               {
-                <Link href={`/loteria/`}>
+                <Link href={`/loteria/${loto}`}>
                   {loto === "maismilionaria"
                     ? "+milionária"
                     : loto === "megasena"

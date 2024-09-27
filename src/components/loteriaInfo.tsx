@@ -1,20 +1,18 @@
 "use client";
 
 import useLoteriasData from "../hooks/useLoteriasData";
-// import Loteriafinal from "./loteriafinal";
-type Loterias = {
-  // loteria: string;
-  concurso: string;
-  data: string;
-  dezenas: string[];
-  trevos: string[];
-  acumulou: boolean;
-};
+import LoteriaFinal from "./loteriafinal";
 
 export default function LoteriaInfo() {
-  const { loterias, maismi } = useLoteriasData();
+  const { loterias, maismi, updateLoteria } = useLoteriasData();
+
+  const handlerLoteria = () => {
+    updateLoteria("lotofacil");
+  };
+
   return (
     <div className="grid grid-cols-12 gap-4">
+      <button onClick={handlerLoteria}>lotofacil</button>
       {loterias &&
         loterias.map((loteria, index) => (
           <div
@@ -37,15 +35,9 @@ export default function LoteriaInfo() {
                   ? "super sete"
                   : loteria}
               </h2>
-              {/* <Loteriafinal loteria={loterias}/> */}
+
+              <LoteriaFinal loterias={maismi} />
             </article>
-          </div>
-        ))}
-      {maismi &&
-        maismi.map((maism, index) => (
-          <div key={index}>
-            <h3>{maism.loteria}</h3>
-            <p>{maism.concurso}</p>
           </div>
         ))}
     </div>

@@ -1,6 +1,5 @@
 "use client";
 type Loterias = {
-  nome: string;
   loteria: string | any;
   concurso: string;
   data: string;
@@ -8,11 +7,11 @@ type Loterias = {
   trevos: string[];
   acumulou: boolean;
 };
-export default function LoteriaFinal({ loteria }: { loteria: Loterias[] }) {
+export default function LoteriaFinal({ loterias }: { loterias: Loterias[] }) {
   return (
     <div>
-      {loteria ? (
-        loteria.map((masmi, index) => (
+      {loterias ? (
+        loterias.map((masmi, index) => (
           <section className="relative" key={index}>
             <div className="bg-neutral-700 p-2 ">
               <h2 className="text-white text-base md:text-lg font-bold ">
