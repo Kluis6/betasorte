@@ -4,7 +4,7 @@ import useLoteriasData from "../hooks/useLoteriasData";
 import LoteriaFinal from "./loteriafinal";
 
 export default function LoteriaInfo() {
-  const { loterias, maismi, updateLoteria } = useLoteriasData();
+  const { loterias, maismi, updateLoteria, loteria } = useLoteriasData();
 
   const handlerLoteria = () => {
     updateLoteria("lotofacil");
@@ -12,6 +12,7 @@ export default function LoteriaInfo() {
 
   return (
     <div className="grid grid-cols-12 gap-4">
+      {loteria}
       <button onClick={handlerLoteria}>lotofacil</button>
       {loterias &&
         loterias.map((loteria, index) => (

@@ -105,6 +105,6 @@ var useLoteriasData = function () {
         getMaismi();
         getLoterias();
     }, [concurso, loteria, loterias]);
-    return { loterias: loterias, maismi: maismi, updateLoteria: updateLoteria };
+    return { loterias: loterias, maismi: maismi, updateLoteria: updateLoteria, loteria: loteria };
 };
 exports["default"] = useLoteriasData;

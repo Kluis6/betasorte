@@ -64,7 +64,7 @@ const useLoteriasData = () => {
     getLoterias();
   }, [concurso, loteria, loterias]);
 
-  return { loterias, maismi, updateLoteria };
+  return { loterias, maismi, updateLoteria, loteria };
 };
 
 export default useLoteriasData;
