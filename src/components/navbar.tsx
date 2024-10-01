@@ -39,7 +39,7 @@ export default function Navbar() {
               key={index}
             >
               {
-                <Link href={`/loteria/${loto}`}>
+                <Link href={`/loterias/${loto}`}>
                   {loto === "maismilionaria"
                     ? "+milionária"
                     : loto === "megasena"

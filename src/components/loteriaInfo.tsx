@@ -10,14 +10,9 @@ export default function LoteriaInfo() {
       {loterias ? (
         loterias.map((loteria, index) => (
           <div
-            className="col-span-4 bg-neutral-50 border border-neutral-300 p-2"
+            className="col-span-4 bg-neutral-50 border border-neutral-300 p-2 relative overflow-hidden"
             key={index}
           >
-            <div>
-              <h2 className="text-black text-base md:text-lg font-bold">
-                {loteria}
-              </h2>
-            </div>
             <LoteriaFinal loteria={loteria} />
           </div>
         ))
