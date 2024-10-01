@@ -1,4 +1,5 @@
 "use client";
+import useLoteriasData from "../hooks/useLoteriasData";
 type Loterias = {
   loteria: string | any;
   concurso: string;
@@ -7,9 +8,18 @@ type Loterias = {
   trevos: string[];
   acumulou: boolean;
 };
-export default function LoteriaFinal({ loterias }: { loterias: Loterias[] }) {
+export default function LoteriaFinal({
+  retorno,
+}: {
+ 
+  retorno: string;
+}) {
+  const { loterias } = useLoteriasData();
+
+  
   return (
     <div>
+      {retorno}
       {loterias ? (
         loterias.map((masmi, index) => (
           <section className="relative" key={index}>

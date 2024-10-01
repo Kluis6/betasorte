@@ -8,21 +8,19 @@ type Loterias = {
   dezenas: string[];
   trevos: string[];
   acumulou: boolean;
+  
 };
 
-interface Loteria {
-  loteria: string;
-  concurso: string;
-}
+
 
 const useLoteriasData = () => {
   const [loterias, setLoterias] = useState([]);
-  const [maismi, setMaisMi] = useState<Loterias[]>([]);
+  const [result, setResult] = useState<Loterias[]>([]);
   const [concurso, setConcurso] = useState("latest");
   const [loteria, setLoteria] = useState("megasena");
 
-  const updateLoteria = (lotos: string) => {
-    setLoteria(lotos);
+  const updateLoteria = (loteria: string) => {
+    setLoteria(loteria);
   };
 
   useEffect(() => {
@@ -51,7 +49,7 @@ const useLoteriasData = () => {
 
         const data = await res.json();
         if (data && typeof data === "object") {
-          setMaisMi([data]); // Transformando em array se for um único objeto
+          setResult([data]); // Transformando em array se for um único objeto
         } else {
           console.error("Formato de dados inesperado para 'maismi'");
         }
@@ -64,7 +62,7 @@ const useLoteriasData = () => {
     getLoterias();
   }, [concurso, loteria, loterias]);
 
-  return { loterias, maismi, updateLoteria, loteria };
+  return { loterias, result, updateLoteria, loteria };
 };
 
 export default useLoteriasData;

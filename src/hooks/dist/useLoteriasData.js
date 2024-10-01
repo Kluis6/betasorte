@@ -40,11 +40,11 @@ exports.__esModule = true;
 var react_1 = require("react");
 var useLoteriasData = function () {
     var _a = react_1.useState([]), loterias = _a[0], setLoterias = _a[1];
-    var _b = react_1.useState([]), maismi = _b[0], setMaisMi = _b[1];
+    var _b = react_1.useState([]), result = _b[0], setResult = _b[1];
     var _c = react_1.useState("latest"), concurso = _c[0], setConcurso = _c[1];
     var _d = react_1.useState("megasena"), loteria = _d[0], setLoteria = _d[1];
-    var updateLoteria = function (lotos) {
-        setLoteria(lotos);
+    var updateLoteria = function (loteria) {
+        setLoteria(loteria);
     };
     react_1.useEffect(function () {
         var getLoterias = function () { return __awaiter(void 0, void 0, void 0, function () {
@@ -88,7 +88,7 @@ var useLoteriasData = function () {
                     case 2:
                         data = _a.sent();
                         if (data && typeof data === "object") {
-                            setMaisMi([data]); // Transformando em array se for um único objeto
+                            setResult([data]); // Transformando em array se for um único objeto
                         }
                         else {
                             console.error("Formato de dados inesperado para 'maismi'");
@@ -105,6 +105,6 @@ var useLoteriasData = function () {
         getMaismi();
         getLoterias();
     }, [concurso, loteria, loterias]);
-    return { loterias: loterias, maismi: maismi, updateLoteria: updateLoteria, loteria: loteria };
+    return { loterias: loterias, result: result, updateLoteria: updateLoteria, loteria: loteria };
 };
 exports["default"] = useLoteriasData;
