@@ -9,18 +9,18 @@ type Loterias = {
   acumulou: boolean;
 };
 export default function LoteriaFinal({
-  retorno,
+  loteria,
 }: {
  
-  retorno: string;
+  loteria: string;
 }) {
   const { loterias } = useLoteriasData();
 
   
   return (
     <div>
-      {retorno}
-      {loterias ? (
+      {loteria}
+      {/* {loterias ? (
         loterias.map((masmi, index) => (
           <section className="relative" key={index}>
             <div className="bg-neutral-700 p-2 ">
@@ -47,7 +47,7 @@ export default function LoteriaFinal({
         ))
       ) : (
         <p>Nenhum resultado encontrado.</p>
-      )}
+      )} */}
     </div>
   );
 }

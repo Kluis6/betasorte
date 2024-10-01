@@ -1,6 +1,6 @@
 "use client";
-
 import useLoteriasData from "../hooks/useLoteriasData";
+import LoteriaFinal from "./loteriafinal";
 
 export default function LoteriaInfo() {
   const { loterias } = useLoteriasData();
@@ -18,6 +18,7 @@ export default function LoteriaInfo() {
                 {loteria}
               </h2>
             </div>
+            <LoteriaFinal loteria={loteria} />
           </div>
         ))
       ) : (
