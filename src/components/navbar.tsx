@@ -1,10 +1,9 @@
 "use client";
 import Link from "next/link";
-
 import useLoteriasData from "../hooks/useLoteriasData";
 
 export default function Navbar() {
-  // const [loterias, setLoterias] = useState([]);
+
 
   const { loterias } = useLoteriasData();
 

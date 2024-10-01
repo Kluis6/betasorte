@@ -1,6 +1,7 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import useLoteriasData from "../hooks/useLoteriasData";
+import React from "react";
 type Loterias = {
   loteria: string | any;
   concurso: string;
@@ -11,6 +12,7 @@ type Loterias = {
 };
 export default function LoteriaFinal({ loteria }: { loteria: string }) {
   const { result, updateLoteria } = useLoteriasData();
+  const [modal, setModal] = useState(false);
 
   useEffect(() => {
     const upLoteria = () => {
@@ -74,13 +76,21 @@ export default function LoteriaFinal({ loteria }: { loteria: string }) {
         <section className="">
           <button
             type="button"
+            onClick={() => setModal(!modal)}
             className=" w-full bg-orange-500 text-white font-bold py-1.5 "
           >
             Veja o resultado
           </button>
         </section>
       </div>
-      <div className=" absolute top-0 left-0 h-screen w-screen bg-neutral-800/10 z-10"></div>
+      <div
+        onClick={() => setModal(!modal)}
+        className={`absolute top-0 left-0  bg-neutral-50 z-10 ${
+          modal ? "h-screen w-screen" : ""
+        }`}
+      >
+        {" "}
+      </div>
     </>
   );
 }
