@@ -1,10 +1,11 @@
 "use client";
 import { useState } from "react";
 
-export default function TabsSection() {
+export default function TabsSection({ loteria }: { loteria: string }) {
   const [tabs, setTabs] = useState<number>(0);
   return (
     <section className="w-full">
+      <div>{loteria}</div>
       <div className="flex items-center">
         <button
           type="button"
@@ -40,7 +41,7 @@ export default function TabsSection() {
           Método 2
         </button>
       </div>
-      <div className="w-full  py-2">
+      <div className="w-full h-full  py-2">
         {tabs === 0 && <div className="w-full bg-neutral-50 p-2">0</div>}
         {tabs === 1 && <div className="w-full bg-neutral-50 p-2">1</div>}
         {tabs === 2 && <div className="w-full bg-neutral-50 p-2">2</div>}
