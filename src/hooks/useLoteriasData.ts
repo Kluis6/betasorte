@@ -23,6 +23,10 @@ const useLoteriasData = () => {
     setLoteria(loteria);
   };
 
+  const updateConcurso = (loteria: string) => {
+    setLoteria(loteria);
+  };
+
   useEffect(() => {
     const getLoterias = async () => {
       try {

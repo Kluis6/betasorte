@@ -1,16 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import useLoteriasData from "../hooks/useLoteriasData";
-// import React from "react";
-// import React from "react";
-// type Loterias = {
-//   loteria: string | any;
-//   concurso: string;
-//   data: string;
-//   dezenas: string[];
-//   trevos: string[];
-//   acumulou: boolean;
-// };
+
 export default function LoteriaFinal({ loteria }: { loteria: string }) {
   const { result, updateLoteria } = useLoteriasData();
   const [modal, setModal] = useState(false);
@@ -23,8 +14,8 @@ export default function LoteriaFinal({ loteria }: { loteria: string }) {
   }, [loteria, updateLoteria]);
 
   return (
-    <div>
-      <div className="h-full w-full  flex flex-col justify-between">
+    <div className="h-full">
+      <div className="h-full flex flex-col justify-between">
         {result ? (
           result.map((loto, index) => (
             <section className="" key={index}>
