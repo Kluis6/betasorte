@@ -1,29 +1,23 @@
 "use client";
 import Link from "next/link";
-import useLoteriasData from "../hooks/useLoteriasData";
+import { useEffect, useState } from "react";
+import { getLoterias } from "@/services/loteriaservice";
 
 export default function Navbar() {
+  const [loteria, setLoteria] = useState<any[]>([]);
 
-
-  const { loterias } = useLoteriasData();
-
-  // useEffect(() => {
-  //   const getLoterias = async () => {
-  //     try {
-  //       // Faz uma requisição para a API interna criada em /api/loterias
-  //       const res = await fetch("https://loteriascaixa-api.herokuapp.com/api/");
-  //       if (!res.ok) {
-  //         throw new Error("Erro ao buscar loterias");
-  //       }
-
-  //       const data = await res.json();
-  //       setLoterias(data);
-  //     } catch (error) {
-  //       console.error("Erro ao buscar loterias:", error);
-  //     }
-  //   };
-  //   getLoterias();
-  // }, []);
+  useEffect(() => {
+    const loteria = "";
+    const concurso = "";
+    getLoterias(loteria, concurso)
+      .then((data: any) => {
+        setLoteria(data);
+      })
+      .catch((error: any) => {
+        console.error(error);
+      });
+    getLoterias(loteria, concurso);
+  }, []);
 
   return (
     <div className="w-full bg-neutral-800 border-b border-neutral-100 sticky top-0 z-10">
@@ -31,13 +25,13 @@ export default function Navbar() {
         <Link href={"/"}>
           <h1 className="text-white font-bold text-base">BetaSorte</h1>
         </Link>
-        <ul className="flex gap-2">
-          {loterias.map((loto, index) => (
-            <li
-              className={`text-white active:text-neutral-400 transition-colors hover:text-neutral-300`}
-              key={index}
-            >
-              {
+
+        <nav className="flex gap-2">
+          {loteria.map((loto, index) => (
+            <ul key={index} className=" flex gap-4">
+              <li
+                className={`text-white active:text-neutral-400 transition-colors hover:text-neutral-300`}
+              >
                 <Link href={`/loterias/${loto}`}>
                   {loto === "maismilionaria"
                     ? "+milionária"
@@ -52,11 +46,11 @@ export default function Navbar() {
                     : loto === "supersete"
                     ? "super sete"
                     : loto}
-                </Link>
-              }
-            </li>
+                </Link>{" "}
+              </li>
+            </ul>
           ))}
-        </ul>
+        </nav>
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 "use client";
-import useLoteriasData from "../hooks/useLoteriasData";
+import useLoteriasData from "../../hooks/useLoteriasData";
 import LoteriaFinal from "./loteriafinal";
 
 export default function LoteriaInfo() {

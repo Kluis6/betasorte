@@ -8,16 +8,13 @@ type Loterias = {
   dezenas: string[];
   trevos: string[];
   acumulou: boolean;
-  
 };
-
-
 
 const useLoteriasData = () => {
   const [loterias, setLoterias] = useState([]);
   const [result, setResult] = useState<Loterias[]>([]);
   const [concurso, setConcurso] = useState("latest");
-  const [loteria, setLoteria] = useState("megasena");
+  const [loteria, setLoteria] = useState("maismilionaria");
 
   const updateLoteria = (loteria: string) => {
     setLoteria(loteria);
@@ -54,6 +51,7 @@ const useLoteriasData = () => {
         const data = await res.json();
         if (data && typeof data === "object") {
           setResult([data]); // Transformando em array se for um único objeto
+          console.log(data);
         } else {
           console.error("Formato de dados inesperado para 'maismi'");
         }

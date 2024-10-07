@@ -1,16 +1,38 @@
 "use client";
 import { useEffect, useState } from "react";
-import useLoteriasData from "../hooks/useLoteriasData";
+// import useLoteriasData from "../hooks/useLoteriasData";
+import { getLoterias } from "@/services/loteriaservice";
 
+type Loterias = {
+  loteria: string;
+  concurso: string;
+  data: string;
+  dezenas: string[];
+  trevos: string[];
+  acumulou: boolean;
+};
 export default function TabsSection({ loteria }: { loteria: string }) {
   const [tabs, setTabs] = useState<number>(0);
-  const { result, updateLoteria } = useLoteriasData();
-  
+  // const { result, updateLoteria } = useLoteriasData();
+  const [loterias, setLoterias] = useState<Loterias[]>([]);
 
+  const concurso = "1";
+  useEffect(() => {
+    getLoterias(loteria, concurso) // Assuming 'concurso' is a number and using 1 as a placeholder
+      .then((data) => {
+        setLoterias(data);
+      })
+      .catch((error: any) => {
+        console.error(error);
+        // Assuming updateLoteria is a function that updates the state with the fetched data or null in case of error.
+      });
+    getLoterias(loteria, concurso);
+  }, [loteria, concurso]);
 
   return (
     <section className="w-full">
-      <div>{loteria}</div>
+      <div>{loterias}</div>
+
       <div className="flex items-center">
         <button
           type="button"
@@ -49,12 +71,7 @@ export default function TabsSection({ loteria }: { loteria: string }) {
       <div className="w-full h-full  py-2">
         {tabs === 0 && (
           <div className="w-full bg-neutral-50 p-2">
-            <div></div>
-            {result.map((resu, index) => (
-              <div key={index}>
-                <h3>{resu.concurso}</h3>
-              </div>
-            ))}
+            <div>{}</div>
           </div>
         )}
         {tabs === 1 && <div className="w-full bg-neutral-50 p-2">1</div>}

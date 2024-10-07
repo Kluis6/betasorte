@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import useLoteriasData from "../hooks/useLoteriasData";
+import useLoteriasData from "../../hooks/useLoteriasData";
 
 export default function LoteriaFinal({ loteria }: { loteria: string }) {
   const { result, updateLoteria } = useLoteriasData();
@@ -42,10 +42,14 @@ export default function LoteriaFinal({ loteria }: { loteria: string }) {
                 </p>
 
                 <p className="text-xl font-bold text-indigo-950  text-center">
-                  {loto.dezenas.join(" ")}
+                  {loto.dezenas ? (
+                    loto.dezenas.join(" ")
+                  ) : (
+                    <span>carregando ...</span>
+                  )}
                 </p>
                 <div className="">
-                  {loto.trevos.length ? (
+                  {loto.trevos ? (
                     <p className="text-base font-bold text-indigo-950  text-center">
                       Trevos Sorteados:{" "}
                       <span className="text-green-600 text-xl">
@@ -80,9 +84,7 @@ export default function LoteriaFinal({ loteria }: { loteria: string }) {
         className={`absolute top-0 left-0  bg-neutral-50 z-10 ${
           modal ? "h-screen w-screen" : ""
         }`}
-      >
-        {" "}
-      </div>
+      ></div>
     </div>
   );
 }

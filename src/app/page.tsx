@@ -6,8 +6,8 @@
 //   trevos: string[];
 //   acumulou: boolean;
 // };
-
 import LoteriaInfo from "@/components/loteriaInfo";
+
 
 // async function getSupersete(): Promise<Loterias[]> {
 //   const response = await fetch(
@@ -29,10 +29,7 @@ export default function Home() {
         <div className="col-span-12">
           <h1 className="font-bold text-base">Confira os resulados</h1>
         </div>
-        <div className="col-span-12 ">
-          <LoteriaInfo />
-          
-        </div>
+        <div className="col-span-12 "><LoteriaInfo /></div>
       </div>
     </main>
   );
